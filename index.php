@@ -1,3 +1,9 @@
-<?php include __DIR__ . 'Router.php';
+<?php include __DIR__ . '/vendor/autoload.php';
 
-echo 'hello world';
+use Router\Router;
+
+$route = new Router;
+$route->get('/', function () {
+    dd('hello world');
+});
+$route->run();

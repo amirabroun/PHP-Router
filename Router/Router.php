@@ -225,7 +225,6 @@ class Router
         $method = $_SERVER['REQUEST_METHOD'];
 
         // If it's a HEAD request override it to being GET and prevent any output, as per HTTP Specification
-        // @url http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.4
         if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
             ob_start();
             $method = 'GET';
@@ -328,7 +327,6 @@ class Router
      */
     public function trigger404($match = null)
     {
-
         // Counter to keep track of the number of routes we've handled
         $numHandled = 0;
 
