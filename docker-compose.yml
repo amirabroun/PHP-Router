@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+
+    nginx:
+        container_name: nginx
+        build: ./Docker/nginx
+        links:
+            - php
+        volumes:
+            - /home/amirabroun/Documents/php-repo/Router/:/usr/share/nginx/www
+        ports:
+            - 8000:80
+
+    php:
+        container_name: php
+        build: ./Docker/php
+        volumes:
+            - /home/amirabroun/Documents/php-repo/Router/:/usr/share/nginx/www
+        working_dir: /home/amirabroun/Documents/php-repo/Router/:/usr/share/nginx/www
+        env_file:
+            - ./.env
